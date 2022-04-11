@@ -1,29 +1,37 @@
-# tallpad-headlessui-buildingdropdownmenu
+# tallpad-headlessui
+
+## Building a dropdown menu
+
+After https://tallpad.com/series/headlessui/lessons/building-a-dropdown-menu
+
+Change `src/App.vue` to
+
+```html
+<template>
+  <DropdownMenu />
+</template>
+
+<script lang="ts">
+  import { defineComponent } from "vue"
+  import DropdownMenu from "./components/DropdownMenu.vue"
+
+  export default defineComponent({
+    name: "App",
+    components: {
+      DropdownMenu,
+    },
+  })
+</script>
+```
 
 ## Project setup
+
 ```
 yarn install
 ```
 
 ### Compiles and hot-reloads for development
+
 ```
 yarn serve
 ```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Run your unit tests
-```
-yarn test:unit
-```
-
-### Run your end-to-end tests
-```
-yarn test:e2e
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
