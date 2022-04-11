@@ -11,7 +11,7 @@
           class="w-10 h-10 inline ring-2 ring-offset-2 ring-gray-100 rounded-full"
           src="http://placebeard.it/g/30/30"
           alt="" /></MenuButton
-      ><transition
+      ><Transition
         enter-active-class="transition transform duration-100 ease-out"
         enter-from-class="opacity-0 scale-90"
         enter-to-class="opacity-100 scale-100"
@@ -61,7 +61,7 @@
             ></MenuItem
           ></MenuItems
         >
-      </transition></Menu
+      </Transition></Menu
     >
     <Menu
       as="div"
