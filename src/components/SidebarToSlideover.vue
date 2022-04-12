@@ -1,6 +1,44 @@
 <template>
   <div id="main" class="flex min-h-screen">
-    <nav id="sidebar" class="px-6 py-8 space-y-8 bg-gray-50 border-r">
+    <Dialog
+      id="mobile-sidebar-dialog"
+      as="div"
+      :open="sidebarOpened"
+      @close="sidebarOpened = false"
+      class="md:hidden block fixed inset-0 z-40"
+      x_comment="For the Dialog to hide from md on. fixed inset-0 z-40 are all for the Dialog overlay's first layer"
+    >
+      <nav
+        id="mobile-sidebar"
+        class="relative z-10 max-w-fit h-full overflow-y-auto px-6 space-y-8 bg-gray-50 border-r"
+        x_comment="z over previous, max width only as content needs and full vertical"
+      >
+        <button
+          type="button"
+          value="Close sidebar"
+          title="Close sidebar"
+          @click="sidebarOpened = false"
+          class="absolute top-2 right-2 flex items-center justify-center w-10 h-10 rounded-full group"
+        >
+          <XIcon
+            class="w-5 h-5 group-hover:text-orange-500 group-focus:text-orange-500"
+          />
+        </button>
+        <SidebarGroup :navigationItems="mainNavigation">Main</SidebarGroup>
+        <SidebarGroup :navigationItems="libraryNavigation"
+          >Library</SidebarGroup
+        >
+      </nav>
+      <DialogOverlay
+        id="mobile-sidebar-dialog-overlay"
+        x_comment="Closes dialog if clicked"
+        class="fixed inset-0 bg-gray-600 bg-opacity-50"
+      ></DialogOverlay>
+    </Dialog>
+    <nav
+      id="desktop-sidebar"
+      class="hidden md:block px-6 py-8 space-y-8 bg-gray-50 border-r"
+    >
       <SidebarGroup :navigationItems="mainNavigation">Main</SidebarGroup>
       <SidebarGroup :navigationItems="libraryNavigation">Library</SidebarGroup>
     </nav>
@@ -19,9 +57,11 @@
         >
           <button
             id="sidebar-toggle"
-            class="hover:text-orange-500 focus:text-orange-500"
             type="button"
             value="Open sidebar"
+            title="Open sidebar"
+            @click="sidebarOpened = true"
+            class="md:invisible block hover:text-orange-500 focus:text-orange-500"
           >
             <MenuIcon class="h-5 w-5" />
           </button>
@@ -70,7 +110,16 @@
 </template>
 <script lang="ts">
 import { defineComponent } from "vue"
-import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue"
+import {
+  TransitionRoot,
+  TransitionChild,
+  Dialog,
+  DialogOverlay,
+  Menu,
+  MenuButton,
+  MenuItems,
+  MenuItem,
+} from "@headlessui/vue"
 import {
   CalendarIcon,
   ChatIcon,
@@ -81,6 +130,7 @@ import {
   ChevronDownIcon,
   MenuIcon,
   SearchIcon,
+  XIcon,
 } from "@heroicons/vue/solid"
 
 import SidebarGroup from "./SidebarGroup.vue"
@@ -95,10 +145,16 @@ export default defineComponent({
     ChevronDownIcon,
     MenuIcon,
     SearchIcon,
+    XIcon,
     SidebarGroup,
+    TransitionRoot,
+    TransitionChild,
+    Dialog,
+    DialogOverlay,
   },
   data() {
     return {
+      sidebarOpened: true,
       mainNavigation: [
         { href: "/", label: "Home", icon: HomeIcon },
         { href: "/", label: "Most recommended", icon: HeartIcon },
