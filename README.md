@@ -26,7 +26,11 @@ Change `src/App.vue` to
 
 ## From sidebar to slide-over on small screens with Headless UI
 
-After https://tallpad.com/series/headlessui/lessons/from-sidebar-to-slide-over-on-small-screens-with-headless-ui
+After
+
+- https://tallpad.com/series/tailwind/lessons/build-an-input-with-icon-using-tailwindcss
+- https://tallpad.com/series/tailwind/lessons/build-a-sidebar-navigation
+- https://tallpad.com/series/headlessui/lessons/from-sidebar-to-slide-over-on-small-screens-with-headless-ui
 
 ```html
 TBD
