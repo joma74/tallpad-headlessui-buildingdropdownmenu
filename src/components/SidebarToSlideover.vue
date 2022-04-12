@@ -1,8 +1,8 @@
 <template>
   <div id="main" class="flex min-h-screen">
-    <nav id="sidebar" class="p-7 space-y-10">
-      <ol id="sidebar-main" class="text-gray-400">
-        <h3 class="mx-6 mb-2 text-xs uppercase tracking-widest">Main</h3>
+    <nav id="sidebar" class="px-6 py-8 space-y-8 bg-gray-50 border-r">
+      <ol id="sidebar-main" class="mx-6 pb-4 text-gray-400">
+        <h3 class="text-xs uppercase tracking-widest">Main</h3>
         <li>
           <a
             v-for="(item, index) in mainNavigation"
@@ -18,8 +18,8 @@
           </a>
         </li>
       </ol>
-      <ol id="sidebar-library" class="text-gray-400">
-        <h3 class="mx-6 mb-2 text-xs uppercase tracking-widest">Library</h3>
+      <ol id="sidebar-library" class="mx-6 pb-4 text-gray-400">
+        <h3 class="text-xs uppercase tracking-widest">Library</h3>
         <li>
           <a
             v-for="(item, index) in libraryNavigation"
@@ -96,7 +96,7 @@
               alt="" /></MenuButton
         ></Menu>
       </nav>
-      <main id="content" class="flex">Content</main>
+      <main id="content">Content</main>
     </div>
   </div>
 </template>
