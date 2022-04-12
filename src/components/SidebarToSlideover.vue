@@ -1,40 +1,8 @@
 <template>
   <div id="main" class="flex min-h-screen">
     <nav id="sidebar" class="px-6 py-8 space-y-8 bg-gray-50 border-r">
-      <ol id="sidebar-main" class="mx-6 pb-4 text-gray-400">
-        <h3 class="text-xs uppercase tracking-widest">Main</h3>
-        <li>
-          <a
-            v-for="(item, index) in mainNavigation"
-            :href="item.href"
-            :key="index"
-            class="flex items-center px-6 py-2 group"
-          >
-            <component
-              :is="item.icon"
-              class="mr-2 w-5 h-5 group-hover:text-orange-500 group-focus:text-orange-500"
-            />
-            {{ item.label }}
-          </a>
-        </li>
-      </ol>
-      <ol id="sidebar-library" class="mx-6 pb-4 text-gray-400">
-        <h3 class="text-xs uppercase tracking-widest">Library</h3>
-        <li>
-          <a
-            v-for="(item, index) in libraryNavigation"
-            :href="item.href"
-            :key="index"
-            class="flex items-center px-6 py-2 group"
-          >
-            <component
-              :is="item.icon"
-              class="mr-2 w-5 h-5 group-hover:text-orange-500 group-focus:text-orange-500"
-            />
-            {{ item.label }}
-          </a>
-        </li>
-      </ol>
+      <SidebarGroup :navigationItems="mainNavigation">Main</SidebarGroup>
+      <SidebarGroup :navigationItems="libraryNavigation">Library</SidebarGroup>
     </nav>
     <!-- The following are block level elements, hence row based. This why main let them strech. -->
     <div id="main" class="flex-1">
@@ -115,6 +83,8 @@ import {
   SearchIcon,
 } from "@heroicons/vue/solid"
 
+import SidebarGroup from "./SidebarGroup.vue"
+
 export default defineComponent({
   name: "SidebarToSlideover",
   components: {
@@ -125,6 +95,7 @@ export default defineComponent({
     ChevronDownIcon,
     MenuIcon,
     SearchIcon,
+    SidebarGroup,
   },
   data() {
     return {
