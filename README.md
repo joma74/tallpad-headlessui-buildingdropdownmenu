@@ -36,12 +36,28 @@ After
 TBD
 ```
 
+## Props with Typescript
+
+UUUUU, nice :smile:. Even works on consuming side.
+
+```ts
+props: {
+    navigationItems: Array as PropType<
+      Array<{ href: string; icon: Component; label: string }>
+    >,
+  },
+```
+
 ## Tailwind CSS group vs within vs peer
 
 - <span style="color:green">Applied</span> [Styling based on parent state (group-{modifier})](https://tailwindcss.com/docs/hover-focus-and-other-states#styling-based-on-parent-state)
   When you need to style an element based on the state of some parent element...
 - <span style="color:green">Applied</span> [focus-within (:focus-within)](https://tailwindcss.com/docs/hover-focus-and-other-states#focus-within) Style an element when it or one of its descendants has focus...
 - <span style="color:gray">Not applied</span> [Styling based on sibling state (peer-{modifier})](https://tailwindcss.com/docs/hover-focus-and-other-states#styling-based-on-sibling-state) When you need to style an element based on the state of a sibling element...
+
+## Scrollbar Styling
+
+See https://github.com/tailwindlabs/tailwindcss/discussions/1640
 
 ## Project setup
 
