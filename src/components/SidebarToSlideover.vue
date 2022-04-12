@@ -1,7 +1,7 @@
 <template>
   <div id="main" class="flex min-h-screen">
-    <nav id="sidebar" class="p-7">
-      <ol id="sidebar-main" class="mb-10 text-gray-400">
+    <nav id="sidebar" class="p-7 space-y-10">
+      <ol id="sidebar-main" class="text-gray-400">
         <h3 class="mx-6 mb-2 text-xs uppercase tracking-widest">Main</h3>
         <li>
           <a
@@ -18,7 +18,7 @@
           </a>
         </li>
       </ol>
-      <ol id="sidebar-library" class="mb-10 text-gray-400">
+      <ol id="sidebar-library" class="text-gray-400">
         <h3 class="mx-6 mb-2 text-xs uppercase tracking-widest">Library</h3>
         <li>
           <a
