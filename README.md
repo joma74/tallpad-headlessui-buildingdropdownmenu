@@ -44,8 +44,9 @@ yarn install
 yarn serve
 ```
 
-### Refernces
+### References
 
 - https://heroicons.com/
 - https://headlessui.dev/
 - https://tailwindcss.com/
+- [Adam Wathan's take on a search box](https://youtu.be/6xgMkGMIudE?t=1821)
