@@ -12,7 +12,7 @@
           >
             <component
               :is="item.icon"
-              class="mr-2 w-5 h-5 group-hover:text-orange-500"
+              class="mr-2 w-5 h-5 group-hover:text-orange-500 group-focus:text-orange-500"
             />
             {{ item.label }}
           </a>
@@ -29,7 +29,7 @@
           >
             <component
               :is="item.icon"
-              class="mr-2 w-5 h-5 group-hover:text-orange-500"
+              class="mr-2 w-5 h-5 group-hover:text-orange-500 group-focus:text-orange-500"
             />
             {{ item.label }}
           </a>
@@ -47,11 +47,11 @@
         <div
           id="nav-totheleft"
           x_comment="space-x-* adds horizontal space !between! children, see https://tailwindcss.com/docs/space#add-horizontal-space-between-children"
-          class="relative flex items-center flex-grow space-x-4"
+          class="group relative flex items-center flex-grow space-x-4"
         >
           <button
             id="sidebar-toggle"
-            class=""
+            class="hover:text-orange-500 focus:text-orange-500"
             type="button"
             value="Open sidebar"
           >
@@ -65,7 +65,7 @@
             class="h-full max-h-14 w-full max-w-lg"
           >
             <div
-              class="relative h-full w-full flex items-center text-gray-400 focus-within:text-orange-500"
+              class="relative h-full w-full flex items-center text-gray-400 focus-within:text-orange-500 hover:text-orange-500"
               id="component-searchinput"
             >
               <!-- A wrapper component div to steer the SearchIcon via absolute and flex into place   -->
@@ -86,8 +86,10 @@
           </form>
         </div>
         <Menu id="nav-totheright" as="div" class="relative flex-shrink-0"
-          ><MenuButton class="flex items-center p-1 rounded-md"
-            ><ChevronDownIcon class="h-5 w-5 m-3"></ChevronDownIcon
+          ><MenuButton class="flex items-center p-1 rounded-md group"
+            ><ChevronDownIcon
+              class="h-5 w-5 m-3 hover:text-orange-500 group-focus:text-orange-500"
+            ></ChevronDownIcon
             ><img
               class="w-10 h-10 inline ring-2 ring-offset-2 ring-gray-100 rounded-full"
               src="http://placebeard.it/g/30/30"
