@@ -1,15 +1,15 @@
 <template>
-  <DropdownMenu />
+  <SidebarToSlideover />
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue"
-import DropdownMenu from "./components/DropdownMenu.vue"
+import SidebarToSlideover from "./components/SidebarToSlideover.vue"
 
 export default defineComponent({
   name: "App",
   components: {
-    DropdownMenu,
+    SidebarToSlideover,
   },
 })
 </script>

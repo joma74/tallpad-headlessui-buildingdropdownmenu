@@ -24,6 +24,14 @@ Change `src/App.vue` to
 </script>
 ```
 
+## From sidebar to slide-over on small screens with Headless UI
+
+After https://tallpad.com/series/headlessui/lessons/from-sidebar-to-slide-over-on-small-screens-with-headless-ui
+
+```html
+TBD
+```
+
 ## Project setup
 
 ```
@@ -35,3 +43,9 @@ yarn install
 ```
 yarn serve
 ```
+
+### Refernces
+
+- https://heroicons.com/
+- https://headlessui.dev/
+- https://tailwindcss.com/
