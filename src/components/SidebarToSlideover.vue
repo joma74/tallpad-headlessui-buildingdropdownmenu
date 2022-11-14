@@ -1,6 +1,6 @@
 <template>
   <div id="main" class="flex min-h-screen">
-    <TransitionRoot :show="sidebarOpened">
+    <TransitionRoot appear :show="sidebarOpened">
       <Dialog
         id="mobile-sidebar-dialog"
         as="div"

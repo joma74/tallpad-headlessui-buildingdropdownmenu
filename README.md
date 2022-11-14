@@ -59,6 +59,25 @@ props: {
 
 See https://github.com/tailwindlabs/tailwindcss/discussions/1640
 
+## Fix TransitionRoot's child component's enter animation
+
+For a TransitionRoot's child component's enter animation to be executed, the following properties of appear and as="template" seem to be necessary.
+
+```ts
+<TransitionRoot appear...>
+    <Dialog...>
+        <TransitionChild as="template"
+          enter="transition... transform">
+          <nav>...</nav>
+        </TransitionChild>
+        <TransitionChild as="template"
+          enter="transition... transform">
+          <DialogOverlay>...</DialogOverlay>
+        </TransitionChild>
+    </Dialog...>
+</TransitionRoot>
+```
+
 ## Project setup
 
 ```
