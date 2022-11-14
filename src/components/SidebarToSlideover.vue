@@ -1,40 +1,61 @@
 <template>
   <div id="main" class="flex min-h-screen">
-    <Dialog
-      id="mobile-sidebar-dialog"
-      as="div"
-      :open="sidebarOpened"
-      @close="sidebarOpened = false"
-      class="md:hidden block fixed inset-0 z-40"
-      x_comment="For the Dialog to hide from md on. fixed inset-0 z-40 are all for the Dialog overlay's first layer"
-    >
-      <nav
-        id="mobile-sidebar"
-        class="relative z-10 max-w-fit h-full overflow-y-auto px-6 space-y-8 bg-gray-50 border-r"
-        x_comment="z over previous, max width only as content needs and full vertical"
+    <TransitionRoot :show="sidebarOpened">
+      <Dialog
+        id="mobile-sidebar-dialog"
+        as="div"
+        @close="sidebarOpened = false"
+        class="md:hidden block fixed inset-0 z-40"
+        x_comment="For the Dialog to hide from md on. fixed inset-0 z-40 are all for the Dialog overlay's first layer"
       >
-        <button
-          type="button"
-          value="Close sidebar"
-          title="Close sidebar"
-          @click="sidebarOpened = false"
-          class="absolute top-2 right-2 flex items-center justify-center w-10 h-10 rounded-full group"
+        <TransitionChild
+          as="template"
+          enter="transition ease-in-out duration-1000 transform"
+          enter-from="-translate-x-full"
+          enter-to="translate-x-0"
+          leave="transition ease-in-out duration-1000 transform"
+          leave-from="translate-x-0"
+          leave-to="-translate-x-full"
         >
-          <XIcon
-            class="w-5 h-5 group-hover:text-orange-500 group-focus:text-orange-500"
-          />
-        </button>
-        <SidebarGroup :navigationItems="mainNavigation">Main</SidebarGroup>
-        <SidebarGroup :navigationItems="libraryNavigation"
-          >Library</SidebarGroup
+          <nav
+            id="mobile-sidebar"
+            class="relative z-10 max-w-fit h-full overflow-y-auto px-6 space-y-8 bg-gray-50 border-r"
+            x_comment="z over previous, max width only as content needs and full vertical"
+          >
+            <button
+              type="button"
+              value="Close sidebar"
+              title="Close sidebar"
+              @click="sidebarOpened = false"
+              class="absolute top-2 right-2 flex items-center justify-center w-10 h-10 rounded-full group"
+            >
+              <XIcon
+                class="w-5 h-5 group-hover:text-orange-500 group-focus:text-orange-500"
+              />
+            </button>
+            <SidebarGroup :navigationItems="mainNavigation">Main</SidebarGroup>
+            <SidebarGroup :navigationItems="libraryNavigation"
+              >Library</SidebarGroup
+            >
+          </nav>
+        </TransitionChild>
+        <TransitionChild
+          as="template"
+          enter="transition-opacity ease-linear duration-1000"
+          enter-from="opacity-0"
+          enter-to="opacity-100"
+          leave="transition-opacity ease-linear duration-1000"
+          leave-from="opacity-100"
+          leave-to="opacity-0"
         >
-      </nav>
-      <DialogOverlay
-        id="mobile-sidebar-dialog-overlay"
-        x_comment="Closes dialog if clicked"
-        class="fixed inset-0 bg-gray-600 bg-opacity-50"
-      ></DialogOverlay>
-    </Dialog>
+          <DialogOverlay
+            id="mobile-sidebar-dialog-overlay"
+            x_comment="Closes dialog if clicked"
+            class="fixed inset-0 bg-gray-600 bg-opacity-50"
+          ></DialogOverlay>
+        </TransitionChild>
+      </Dialog>
+    </TransitionRoot>
     <nav
       id="desktop-sidebar"
       class="hidden md:block px-6 py-8 space-y-8 bg-gray-50 border-r"
