@@ -96,3 +96,19 @@ yarn serve
 - https://headlessui.dev/
 - https://tailwindcss.com/
 - [Adam Wathan's take on a search box](https://youtu.be/6xgMkGMIudE?t=1821)
+
+## Issues
+
+### Cypress >10 Jest vs Mocha
+
+Issue [New Cypress 10 global TypeScript type conflicts with Jest expect](https://github.com/cypress-io/cypress/issues/22059) sums _it_ up appropriately. Pure chaos.
+
+Follow-up solution should be [Import Cypress functions, no more globals #2773
+Open
+](https://github.com/cypress-io/cypress/issues/2773) IMHO.
+
+### Solution
+
+- Implemented answer to [Using Jest and Cypress with Typescript causes Assertion and JestMatchers Errors](https://stackoverflow.com/a/72579711). Just ignore any non-relevant `@types/testing-library__jest-dom` references. And section `jest.d.ts` file not nedded for now.
+
+- Then [Using Jest matchers in Cypress](https://medium.com/@NicholasBoll/using-jest-matchers-in-cypress-5e8e7281f5dd)
